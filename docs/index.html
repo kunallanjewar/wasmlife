@@ -28,7 +28,7 @@ license that can be found in the LICENSE file.
 
         let mod, inst;
 
-        WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then(
+        WebAssembly.instantiateStreaming(fetch("lib.wasm"), go.importObject).then(
             result => {
                 mod = result.module;
                 inst = result.instance;
