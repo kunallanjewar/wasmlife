@@ -6,7 +6,6 @@ import (
 )
 
 func repeatingKeyPressed(key ebiten.Key) bool {
-
 	dt := inpututil.KeyPressDuration(key)
 	if dt == 1 {
 		return true

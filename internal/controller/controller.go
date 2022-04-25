@@ -15,23 +15,6 @@ import (
 const (
 	delay    = 30
 	interval = 3
-
-	welcomeScreenTextFmt = `
------------------
-Enter Live Cells:
-- Each cell must be separated by a newline char or space.
-- Ex. (X1,Y1) (X2, Y2) ...
-- Hit TAB once to begin or
-- Hit ESC once to accept default (r-pintomino) pattern.
---------
-(100,60)
-(101,60)
-(100,61)
-(99,61)
-(100,62)
---------
-%s
-`
 )
 
 type Controller struct {
@@ -75,9 +58,8 @@ func (in *Controller) Update() error {
 	}
 
 	// default input
-	if repeatingKeyPressed(ebiten.KeyEscape) {
+	if in.handleDefaultInput() {
 		in.enabled = false
-		in.text = PatternRpentomino
 		return nil
 	}
 
@@ -134,4 +116,22 @@ func (in *Controller) parseText() []*cel.Cell {
 		cells = append(cells, cel.New(x, y))
 	}
 	return cells
+}
+
+func (in *Controller) handleDefaultInput() bool {
+	if repeatingKeyPressed(ebiten.KeyR) {
+		in.text = PatternRpentomino
+		return true
+	}
+
+	if repeatingKeyPressed(ebiten.KeyO) {
+		in.text = PatternOscillator
+		return true
+	}
+
+	if repeatingKeyPressed(ebiten.KeyG) {
+		in.text = PatternGlider
+		return true
+	}
+	return false
 }

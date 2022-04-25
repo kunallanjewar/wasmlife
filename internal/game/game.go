@@ -31,7 +31,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 	g.Controller.Draw(screen)
 	g.World.Draw(screen)
 
-	// print fps on top right corner
+	// print fps on top left corner
 	ebitenutil.DebugPrint(
 		screen,
 		fmt.Sprintf("FPS: %0.2f\n", ebiten.CurrentFPS()),
