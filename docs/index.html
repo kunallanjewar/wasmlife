@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+Copyright 2018 The Go Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Kunal's wasmlife</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background-color:rgb(238, 248, 179);text-align:center">
+    <script src="wasm_exec.js"></script>
+
+    <script>
+        if (!WebAssembly.instantiateStreaming) {
+            // polyfill
+            WebAssembly.instantiateStreaming = async (resp, importObject) => {
+                const source = await (await resp).arrayBuffer();
+                return await WebAssembly.instantiate(source, importObject);
+            };
+        }
+
+        const go = new Go();
+
+        let mod, inst;
+
+        WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then(
+            result => {
+                mod = result.module;
+                inst = result.instance;
+                document.getElementById("runButton").disabled = false;
+            }
+        );
+
+        async function run() {
+            await go.run(inst);
+            inst = await WebAssembly.instantiate(mod, go.importObject); // reset instance
+        }
+    </script>
+
+    <div class="container">
+        <div class="header"></div>
+        <h1>Kunal's WasmLife</h1>
+        <p>Conway's Game of Life (B3/S23) written in Go and WebAssembly</p>
+        <button onClick="run();" id="runButton" disabled>Start Game</button>
+    </div>
+</body>
+
+</html>
