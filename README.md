@@ -29,8 +29,13 @@ Run without building
 make run
 ```
 
+## CICD
+_GitHub-Actions_ builds and auto-commits built WebAssembly binary to `/doc` directory.
+
+_GitHub-Pages_ deploys this latest binary automatically.
+
 ## Demo
-Latest WebAssembly build is on [GitHub-Pages](https://kunallanjewar.github.io/wasmlife/)
+Latest WebAssembly build is visible on [GitHub-Pages](https://kunallanjewar.github.io/wasmlife/)
 
 ## Improvements
 TODO
