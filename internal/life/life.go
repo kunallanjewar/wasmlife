@@ -29,11 +29,13 @@ func (l Life) Seed(cells []*cel.Cell) {
 	}
 }
 
+// Update is called every tick and generates life's next state.
 func (l Life) Update() error {
 	l.update()
 	return nil
 }
 
+// Draw is called every tick and draws life's next state on screen.
 func (l Life) Draw(screen *ebiten.Image) {
 	for k := range l {
 		screen.Set(int(k.X()), int(k.Y()), PixelColor)

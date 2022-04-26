@@ -23,12 +23,7 @@ func main() {
 	w := world.New(ct)
 
 	// start game
-	err := ebiten.RunGame(
-		&game.Game{
-			Controller: ct,
-			World:      w,
-		})
-
+	err := ebiten.RunGame(game.New(w, ct))
 	if err != nil {
 		log.Fatal(err)
 	}

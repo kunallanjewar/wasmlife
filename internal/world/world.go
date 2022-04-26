@@ -7,6 +7,7 @@ import (
 	"github.com/kunallanjewar/wasmlife/internal/life"
 )
 
+// Controller is an interface to get game's input.
 type Controller interface {
 	Input() ([]*cel.Cell, bool)
 }
@@ -29,6 +30,7 @@ func New(c Controller) *World {
 	return w
 }
 
+// Update is called every tick.
 func (w *World) Update() error {
 	if !w.seeded {
 		w.seed()
@@ -38,6 +40,7 @@ func (w *World) Update() error {
 	return w.life.Update()
 }
 
+// Draw is called every frame.
 func (w *World) Draw(screen *ebiten.Image) {
 	if !w.seeded {
 		return

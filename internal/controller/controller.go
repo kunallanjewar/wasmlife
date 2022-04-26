@@ -1,4 +1,3 @@
-// controller controlls game's input.
 package controller
 
 import (
@@ -17,6 +16,7 @@ const (
 	interval = 3
 )
 
+// Controller provides game's input.
 type Controller struct {
 	runes   []rune
 	text    string
@@ -24,12 +24,14 @@ type Controller struct {
 	enabled bool
 }
 
+// New creates an instrance of a Controller.
 func New() *Controller {
 	return &Controller{
 		enabled: true,
 	}
 }
 
+// Update run every tick and check for user input.
 func (in *Controller) Update() error {
 	if !in.enabled {
 		return nil
@@ -68,6 +70,7 @@ func (in *Controller) Update() error {
 	return nil
 }
 
+// Update run every frame and draws on screen.
 func (in *Controller) Draw(screen *ebiten.Image) {
 	if !in.enabled {
 		return

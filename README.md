@@ -5,7 +5,7 @@
 ## Implementation
 _Life_ board is represented in a 64-bit 2D space. 
 
-Since living cells are sparse we used hash map representing a sparse matrix to only keep track to living cells. 
+Since living cells are sparse we used hash map representing a sparse matrix to only track living cells. 
 
 On each tick we visit all the neighbors of each cell and compute the next generation.
 
