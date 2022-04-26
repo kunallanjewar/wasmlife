@@ -12,7 +12,7 @@ On each tick we visit all the neighbors of each cell and compute the next genera
 For visualization, we used [Ebiten](https://ebiten.org/), a simple 2d game library for Go, which also allows us to compile to WebAssembly. 
 
 ## Build
-Go must be installed on your system.
+[Go](https://go.dev/doc/install) must be installed on your system.
 
 Standard
 ```
