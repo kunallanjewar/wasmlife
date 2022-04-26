@@ -20,11 +20,11 @@ func ApplyRuleB3S23(
 	current, next *cel.Cell,
 	neighbors int) bool
 ```
-ApplyRuleB3S23 applies Conway's Game Of Life rule as following:
+ApplyRuleB3S23 applies Conway's Game Of Life rule as following
 
-    1. If a "dead" cell had *exactly* 3 alive neighbors, it becomes alive.
-    2. If an "alive" cell had less than 2 or more than 3 alive neighbors, it becomes dead.
-    3. If a "alive" cell has 2 or 3 neighbors, its remains alive.
+    1. If a dead cell had exactly 3 alive neighbors, it becomes alive.
+    2. If an alive cell had less than 2 or more than 3 alive neighbors, it becomes dead.
+    3. If an alive cell has 2 or 3 neighbors, its remains alive.
 
 #### type Life
 
