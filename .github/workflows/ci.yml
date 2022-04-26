@@ -13,5 +13,11 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: "1.16.0"
-      - name: Run WASM Build
-        run: make wasm
+      - name: Build WebAssembly
+        run: |
+          make wasm
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "build wasm"
+          git push
