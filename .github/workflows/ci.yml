@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - kunal-final-tweaks
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,5 +18,5 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
-          git commit -m "build wasm"
+          git commit -m "github-action: build wasm"
           git push
