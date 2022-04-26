@@ -1,0 +1,22 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: "1.16.0"
+      - name: Build WebAssembly
+        run: |
+          make wasm
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "github-action: build wasm"
+          git push
