@@ -30,15 +30,20 @@ make run
 ```
 
 ## CICD
-_GitHub-Actions_ builds and auto-commits built WebAssembly binary to `/doc` directory.
+_GitHub-Actions_ builds and auto-commits built WebAssembly binary to `/docs` directory.
 
-_GitHub-Pages_ deploys this latest binary automatically.
+_GitHub-Pages_ deploys latest binary automatically.
 
 ## Demo
 Latest WebAssembly build is visible on [GitHub-Pages](https://kunallanjewar.github.io/wasmlife/)
 
 ## Improvements
-TODO
+Many improvements can be made to this project for better UI/UX.
+
+Such as:
+- Be able to pan Viewport and/or pan to a specific location.
+- Better UI design for taking input.
+- Be able to reset the game at runtime.
 
 ## License
 MIT Licensed

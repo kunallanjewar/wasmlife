@@ -31,7 +31,7 @@ func New() *Controller {
 	}
 }
 
-// Update run every tick and check for user input.
+// Update runs every tick and checks for user input.
 func (in *Controller) Update() error {
 	if !in.enabled {
 		return nil
@@ -70,7 +70,7 @@ func (in *Controller) Update() error {
 	return nil
 }
 
-// Update run every frame and draws on screen.
+// Update runs every frame and draws on screen.
 func (in *Controller) Draw(screen *ebiten.Image) {
 	if !in.enabled {
 		return

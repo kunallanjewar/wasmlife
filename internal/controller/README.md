@@ -71,7 +71,7 @@ New creates an instrance of a Controller.
 ```go
 func (in *Controller) Draw(screen *ebiten.Image)
 ```
-Update run every frame and draws on screen.
+Update runs every frame and draws on screen.
 
 #### func (*Controller) Input
 
@@ -85,4 +85,4 @@ Input returns game input in Cell format.
 ```go
 func (in *Controller) Update() error
 ```
-Update run every tick and check for user input.
+Update runs every tick and checks for user input.
